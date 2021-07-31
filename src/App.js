@@ -1,21 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import Moment from "react-moment";
-
-const USERS = {
-	john: {
-		id: "john",
-		name: "John Doe",
-		profilePic: "",
-		messages: [],
-	},
-	krystian: {
-		id: "krystian",
-		name: "Krystian Pach",
-		profilePic: "",
-		messages: [],
-	},
-};
+import { USERS } from "./data";
 const App = () => {
 	const [users, setUsers] = useState(USERS);
 	const [currentUser, setCurrentUser] = useState(USERS.john);
