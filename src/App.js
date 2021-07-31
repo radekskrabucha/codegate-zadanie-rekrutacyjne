@@ -132,7 +132,13 @@ const App = () => {
 			<div>
 				<h3>Switch Users</h3>
 				<p>Current user: {currentUser.name}</p>
-				<input onChange={handleSwitchUsers} type="checkbox" name="" id="" />
+				<input
+					disabled={isEditing ? true : false}
+					onChange={handleSwitchUsers}
+					type="checkbox"
+					name=""
+					id=""
+				/>
 			</div>
 			<section>
 				<div>
@@ -160,12 +166,23 @@ const App = () => {
 									/>
 								)}
 								<Moment format="k:mm">{time}</Moment>
-								<button onClick={() => deleteMessage(id, userId)} type="button">
-									Delete
-								</button>
-								<button onClick={() => editMessage(msg)} type="button">
-									Edit
-								</button>
+								<div
+									style={{
+										display: `${
+											userId === currentUser.id ? "initial" : "none"
+										}`,
+									}}
+								>
+									<button
+										onClick={() => deleteMessage(id, userId)}
+										type="button"
+									>
+										Delete
+									</button>
+									<button onClick={() => editMessage(msg)} type="button">
+										Edit
+									</button>
+								</div>
 							</div>
 						);
 					})}
