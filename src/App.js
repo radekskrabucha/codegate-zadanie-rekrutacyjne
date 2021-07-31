@@ -4,16 +4,17 @@ import { USERS } from "./data";
 
 import { Switch, SendMessage, Message } from "./components";
 const App = () => {
-	const [users, setUsers] = useState(USERS);
-	const [currentUser, setCurrentUser] = useState(USERS.john);
-	const [messages, setMessages] = useState([]);
-	const [currentMessage, setCurrentMessage] = useState({
+	const DEFAULT_MESSAGE = {
 		content: "",
 		image: "",
 		id: "",
 		time: 0,
 		user: {},
-	});
+	};
+	const [users, setUsers] = useState(USERS);
+	const [currentUser, setCurrentUser] = useState(USERS.john);
+	const [messages, setMessages] = useState([]);
+	const [currentMessage, setCurrentMessage] = useState(DEFAULT_MESSAGE);
 	const [isEditing, setIsEditing] = useState(false);
 
 	const handleChange = (e) => {
@@ -30,17 +31,22 @@ const App = () => {
 			};
 			reader.readAsDataURL(file);
 		}
+		e.target.value = "";
 	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		const newMessage = {
 			id: uuidv4(),
-			content: currentMessage.content ? currentMessage.content : null,
-			image: currentMessage.image ? currentMessage.image : null,
+			content: currentMessage.content ? currentMessage.content : "",
+			image: currentMessage.image ? currentMessage.image : "",
 			time: Date.now(),
 			user: { ...currentUser },
 		};
+		// prevents sending an empty message
+		if (!newMessage.content && !newMessage.image) {
+			return false;
+		}
 		setUsers({
 			...users,
 			[currentUser.id]: {
@@ -48,13 +54,7 @@ const App = () => {
 				messages: [...users[currentUser.id].messages, { ...newMessage }],
 			},
 		});
-		setCurrentMessage({
-			content: "",
-			image: "",
-			id: "",
-			time: 0,
-			user: {},
-		});
+		setCurrentMessage(DEFAULT_MESSAGE);
 	};
 
 	const handleSwitchUsers = (e) => {
@@ -95,13 +95,7 @@ const App = () => {
 				messages: newMessages,
 			},
 		});
-		setCurrentMessage({
-			content: "",
-			image: "",
-			id: "",
-			time: 0,
-			user: {},
-		});
+		setCurrentMessage(DEFAULT_MESSAGE);
 		setIsEditing(false);
 	};
 

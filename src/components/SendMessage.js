@@ -27,8 +27,6 @@ const SendMessage = ({
 				value={currentMessage.content}
 				onChange={handleChange}
 				type="text"
-				name="text"
-				id="text"
 			/>
 			<input
 				onChange={handleImageUpload}
