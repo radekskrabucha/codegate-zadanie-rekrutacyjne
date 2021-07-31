@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
-import Moment from "react-moment";
 import { USERS } from "./data";
+
+import { Switch, SendMessage, Message } from "./components";
 const App = () => {
 	const [users, setUsers] = useState(USERS);
 	const [currentUser, setCurrentUser] = useState(USERS.john);
@@ -113,97 +114,35 @@ const App = () => {
 	}, [users]);
 
 	return (
-		<div>
-			<h1>Chat application</h1>
-			<div>
-				<h3>Switch Users</h3>
-				<p>Current user: {currentUser.name}</p>
-				<input
-					disabled={isEditing ? true : false}
-					onChange={handleSwitchUsers}
-					type="checkbox"
-					name=""
-					id=""
-				/>
-			</div>
-			<section>
-				<div>
+		<div className="container">
+			<h1 className="title">Chat application</h1>
+			<Switch
+				user={currentUser.name}
+				isEditing={isEditing}
+				handleChange={handleSwitchUsers}
+			/>
+			<section className="chat-container">
+				<div className="messages-container">
 					{messages.map((msg) => {
-						const {
-							content,
-							image,
-							id,
-							time,
-							user: { name, id: userId },
-						} = msg;
 						return (
-							<div key={id}>
-								<p>{name}</p>
-								{content && <h2>{content}</h2>}
-								{image && (
-									<img
-										src={image}
-										alt=""
-										style={{
-											width: "100px",
-											height: "100px",
-											background: "red",
-										}}
-									/>
-								)}
-								<Moment format="k:mm">{time}</Moment>
-								<div
-									style={{
-										display: `${
-											userId === currentUser.id ? "initial" : "none"
-										}`,
-									}}
-								>
-									<button
-										onClick={() => deleteMessage(id, userId)}
-										type="button"
-									>
-										Delete
-									</button>
-									<button onClick={() => editMessage(msg)} type="button">
-										Edit
-									</button>
-								</div>
-							</div>
+							<Message
+								key={msg.id}
+								deleteMessage={deleteMessage}
+								editMessage={editMessage}
+								msg={msg}
+								currentUserId={currentUser.id}
+							/>
 						);
 					})}
 				</div>
-				<form
-					onSubmit={
-						isEditing
-							? (e) => handleEdit(currentMessage.id, currentUser.id, e)
-							: handleSubmit
-					}
-				>
-					<input
-						autoComplete="off"
-						value={currentMessage.content}
-						onChange={handleChange}
-						type="text"
-						name="text"
-						id="text"
-					/>
-					<input
-						onChange={handleImageUpload}
-						type="file"
-						accept="image/*"
-						multiple={false}
-					/>
-					<button type="submit">{isEditing ? "Save" : "Send"}</button>
-				</form>
-				<img
-					src={currentMessage.image}
-					alt=""
-					style={{
-						width: "100px",
-						height: "100px",
-						background: "red",
-					}}
+				<SendMessage
+					isEditing={isEditing}
+					handleEdit={handleEdit}
+					handleSubmit={handleSubmit}
+					handleChange={handleChange}
+					handleImageUpload={handleImageUpload}
+					currentMessage={currentMessage}
+					currentUser={currentUser}
 				/>
 			</section>
 		</div>
