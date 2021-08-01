@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { USERS, DEFAULT_MESSAGE } from "./data";
 
@@ -100,6 +100,15 @@ const App = () => {
 		);
 	}, [users]);
 
+	// Scrolls to bottom after sending new message
+	const messagesEndRef = useRef(null);
+	const scrollToBottom = () => {
+		messagesEndRef.current?.scrollIntoView();
+	};
+	useEffect(() => {
+		scrollToBottom();
+	}, [messages]);
+
 	return (
 		<div className="container">
 			<h1 className="title">Chat application</h1>
@@ -121,6 +130,7 @@ const App = () => {
 							/>
 						);
 					})}
+					<div ref={messagesEndRef} />
 				</div>
 				<SendMessageForm
 					isEditing={isEditing}
