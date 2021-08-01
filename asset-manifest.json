@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/codegate-zadanie-rekrutacyjne/static/css/main.8373be97.chunk.css",
+    "main.js": "/codegate-zadanie-rekrutacyjne/static/js/main.3953ec9c.chunk.js",
+    "main.js.map": "/codegate-zadanie-rekrutacyjne/static/js/main.3953ec9c.chunk.js.map",
+    "runtime-main.js": "/codegate-zadanie-rekrutacyjne/static/js/runtime-main.be5053ed.js",
+    "runtime-main.js.map": "/codegate-zadanie-rekrutacyjne/static/js/runtime-main.be5053ed.js.map",
+    "static/js/2.99e7b40c.chunk.js": "/codegate-zadanie-rekrutacyjne/static/js/2.99e7b40c.chunk.js",
+    "static/js/2.99e7b40c.chunk.js.map": "/codegate-zadanie-rekrutacyjne/static/js/2.99e7b40c.chunk.js.map",
+    "index.html": "/codegate-zadanie-rekrutacyjne/index.html",
+    "static/css/main.8373be97.chunk.css.map": "/codegate-zadanie-rekrutacyjne/static/css/main.8373be97.chunk.css.map",
+    "static/js/2.99e7b40c.chunk.js.LICENSE.txt": "/codegate-zadanie-rekrutacyjne/static/js/2.99e7b40c.chunk.js.LICENSE.txt",
+    "static/media/default.f36312ad.svg": "/codegate-zadanie-rekrutacyjne/static/media/default.f36312ad.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.be5053ed.js",
+    "static/js/2.99e7b40c.chunk.js",
+    "static/css/main.8373be97.chunk.css",
+    "static/js/main.3953ec9c.chunk.js"
+  ]
+}
