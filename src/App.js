@@ -1,16 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { USERS } from "./data";
+import { USERS, DEFAULT_MESSAGE } from "./data";
 
-import { Switch, SendMessage, Message } from "./components";
+import { Switch, SendMessageForm, Message } from "./components";
 const App = () => {
-	const DEFAULT_MESSAGE = {
-		content: "",
-		image: "",
-		id: "",
-		time: 0,
-		user: {},
-	};
 	const [users, setUsers] = useState(USERS);
 	const [currentUser, setCurrentUser] = useState(USERS.john);
 	const [messages, setMessages] = useState([]);
@@ -129,7 +122,7 @@ const App = () => {
 						);
 					})}
 				</div>
-				<SendMessage
+				<SendMessageForm
 					isEditing={isEditing}
 					handleEdit={handleEdit}
 					handleSubmit={handleSubmit}

@@ -1,0 +1,110 @@
+.message {
+	display: flex;
+	width: min(320px, 80%);
+	align-self: flex-start;
+}
+.columnProfileImage {
+	padding: 0 8px;
+}
+.profileImageContainer {
+	width: 24px;
+	height: 24px;
+	border-radius: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+}
+.profileImage {
+	width: 100%;
+	height: auto;
+}
+.msgColumn {
+	width: 100%;
+
+	display: flex;
+	flex-direction: column;
+}
+.contentContainer {
+	border-radius: 12px;
+	padding: 16px;
+	background-color: var(--white);
+	margin-bottom: 8px;
+	width: 100%;
+}
+
+.username {
+	font-family: "Roboto", sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: var(--text-navy);
+	margin-bottom: 8px;
+}
+.msgContent {
+	font-family: "Roboto", sans-serif;
+	font-size: 16px;
+	font-weight: regular;
+	line-height: 21px;
+	color: var(--text-navy);
+}
+
+.imageContainer {
+	width: 120px;
+	height: auto;
+	border-radius: 8px;
+	margin-bottom: 8px;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.msgImage {
+	width: 100%;
+	height: auto;
+}
+.infoContainer {
+	padding: 0 12px;
+}
+.infoItem {
+	font-size: 14px;
+	color: var(--text-navy);
+	line-height: 1;
+}
+.infoItem:not(:first-child) {
+	margin-left: 4px;
+}
+
+.infoItem:not(:first-child)::before {
+	content: "|";
+	margin-right: 4px;
+	line-height: inherit;
+}
+.btnText {
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.currentUserMessage {
+	align-self: flex-end;
+	flex-direction: row-reverse;
+}
+
+.currentUserMessage .contentContainer {
+	flex-direction: row-reverse;
+	background-color: var(--blue);
+	color: var(--white);
+}
+.currentUserMessage .username {
+	color: var(--white);
+}
+
+.currentUserMessage .msgContent {
+	color: var(--white);
+}
+.currentUserMessage .imageContainer {
+	align-self: flex-end;
+}
+.currentUserMessage .infoContainer {
+	text-align: end;
+}

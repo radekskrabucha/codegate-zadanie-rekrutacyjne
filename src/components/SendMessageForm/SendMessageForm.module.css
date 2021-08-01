@@ -1,0 +1,47 @@
+.sendMessageForm {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 16px 0;
+}
+.messageInput {
+	flex: 1;
+	padding: 12px;
+	background-color: var(--white);
+	border: none;
+	border-radius: 12px;
+}
+.messageInput:focus-visible {
+	outline: none;
+}
+.imageInput {
+	display: none;
+}
+.imageInputContainer {
+	width: 40px;
+	height: 40px;
+	overflow: hidden;
+	border-radius: 4px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.image {
+	width: 100%;
+	height: auto;
+}
+.btn {
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	text-align: center;
+	border: none;
+	background-color: var(--blue);
+	line-height: 1.5;
+	color: var(--white);
+	cursor: pointer;
+}
+.save {
+	background-color: var(--green);
+}

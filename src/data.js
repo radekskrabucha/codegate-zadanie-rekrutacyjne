@@ -16,4 +16,12 @@ const USERS = {
 	},
 };
 
-export { USERS };
+const DEFAULT_MESSAGE = {
+	content: "",
+	image: "",
+	id: "",
+	time: 0,
+	user: {},
+};
+
+export { USERS, DEFAULT_MESSAGE };

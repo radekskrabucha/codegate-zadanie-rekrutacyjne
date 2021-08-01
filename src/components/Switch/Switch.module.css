@@ -1,0 +1,53 @@
+.subtitle {
+	font-size: 14px;
+	font-weight: 500;
+	letter-spacing: 0px;
+	color: var(--text-gray);
+	margin: 12px 0;
+}
+.switcher {
+	position: relative;
+	display: inline-block;
+	width: 60px;
+	height: 31px;
+	border-radius: 100px;
+	margin-bottom: 12px;
+}
+
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	border-radius: 100px;
+	background-color: var(--gray-light);
+	transition: 0.4s;
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 31px;
+	width: 31px;
+	border-radius: 50%;
+	background-color: var(--white);
+	transition: 0.4s;
+}
+
+.checkbox {
+	display: none;
+}
+
+.checkbox:checked + .slider {
+	background-color: var(--green);
+}
+
+.checkbox:checked + .slider:before {
+	transform: translateX(30px);
+}
+
+.disabled {
+	cursor: not-allowed;
+}

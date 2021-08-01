@@ -1,5 +1,5 @@
-import Message from "./Message";
-import SendMessage from "./SendMessage";
-import Switch from "./Switch";
+import Message from "./Message/Message";
+import SendMessageForm from "./SendMessageForm/SendMessageForm";
+import Switch from "./Switch/Switch";
 
-export { Switch, SendMessage, Message };
+export { Switch, SendMessageForm, Message };
